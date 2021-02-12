@@ -1,1 +1,55 @@
+Online compiler: https://repl.it/~
+Please register an account and start coding on it before you install your local compiler!
 
+1. Function - print
+# print "Hello World!" on screen
+print("Hello World!")
+
+2. Data type - string
+"Hello World!"
+
+3. Error type - SyntaxError
+print("Hello World!)
+
+  File "main.py", line 1
+    print("Hello World!)
+                       ^
+SyntaxError: EOL while scanning string literal
+
+4. Error type - Invalid Syntax
+print("print("Hello!")")
+" or ' 
+
+5. Special symbol - \n
+purpose: change another line
+priint("Hello World!\nHello World!")
+
+6. Special synbol - +
+purpose: concat two string
+print("Hello" + " " +"Lucas")
+=> Hello Lucas
+
+7. Function - Input
+input("Please input a number:")
+
+8. Comment - #
+# comment here
+
+9. Data type - variable
+name = input("What's your name?")
+print(name)
+* name variables meaningful!!!
+ex: user_name instead of n, length instead of l
+
+Last exercise:
+
+#1. Create a greeting for your program.
+print("Welcom to the Band Name Generator.")
+#2. Ask the user for the city that they grew up in.
+city_name = input("What's name of city you grew up in?\n")
+#3. Ask the user for the name of a pet.
+pet_name = input("What's your pet's name?\n")
+#4. Combine the name of their city and pet and show them their band name.
+print("Your band name could be "+ city_name + " "+ pet_name)
+#5. Make sure the input cursor shows on a new line, see the example at:
+#   https://band-name-generator-end.appbrewery.repl.run/
