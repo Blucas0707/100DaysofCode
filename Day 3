@@ -1,0 +1,182 @@
+1. Conditional operator - if elif else
+if number == 2:
+  print("It's 2.")
+elif number == 0:
+  print("It's 0.")
+else:
+  print("It's not 2 or 0.")
+
+Exercise - Odd or even
+
+# 🚨 Don't change the code below 👇
+number = int(input("Which number do you want to check? "))
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+
+if number % 2 == 0:
+  print("This is an even number.")
+else:
+  print("This is an odd number.")
+###################################################################################################################################################################
+Exercise - BMI 2.0 (day-3-2-exercise)
+###################################################################################################################################################################
+# 🚨 Don't change the code below 👇
+height = float(input("enter your height in m: "))
+weight = float(input("enter your weight in kg: "))
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+
+BMI = int(round(weight / (height * height),0))
+
+if BMI <= 18.5:
+  print(f"Your BMI is {BMI}, you are underweight.")
+elif BMI >18.5 and BMI <= 25 :
+  print(f"Your BMI is {BMI}, you have a normal weight.")
+elif BMI >25 and BMI <= 30 :
+  print(f"Your BMI is {BMI}, you are slightly overweight.")
+elif BMI >30 and BMI <= 35 :
+  print(f"Your BMI is {BMI}, you are obese.")
+else:
+  print(f"Your BMI is {BMI}, you are clinically obese.")
+###################################################################################################################################################################
+###################################################################################################################################################################
+Exercise - Leap Year (day-3-3-exercise)
+###################################################################################################################################################################
+# 🚨 Don't change the code below 👇
+year = int(input("Which year do you want to check? "))
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+
+if year % 100 == 0 and year % 400 != 0:
+  print("Not leap year.")
+elif year % 4 != 0:
+  print("Not leap year.")
+else:
+  print("Leap year.")
+
+###################################################################################################################################################################
+Exercise - Pizza Order Exercise (day-3-4-exercise)
+###################################################################################################################################################################
+# 🚨 Don't change the code below 👇
+print("Welcome to Python Pizza Deliveries!")
+size = input("What size pizza do you want? S, M, or L ")
+add_pepperoni = input("Do you want pepperoni? Y or N ")
+extra_cheese = input("Do you want extra cheese? Y or N ")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+bill = 0
+if size == 'S':
+  bill += 15
+elif size == 'M':
+  bill += 20
+else:
+  bill += 25
+if add_pepperoni == 'Y' and size == 'S':
+  bill += 2
+elif add_pepperoni == 'Y' and size != 'S':
+  bill += 3
+else:
+  pass
+if extra_cheese == 'Y':
+  bill +=1
+print(f"Your final bill is: ${bill}.")
+###################################################################################################################################################################
+2. Logical operators - and, or, not
+if A and B
+if C or D
+if not E
+###################################################################################################################################################################
+Exercise - Love Calculator Exercise (day-3-5-exercise)
+###################################################################################################################################################################
+# 🚨 Don't change the code below 👇
+print("Welcome to the Love Calculator!")
+name1 = input("What is your name? \n")
+name2 = input("What is their name? \n")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+
+TRUE_count = 0
+LOVE_count = 0
+name = name1.lower() + name2.lower()
+TRUE_count = TRUE_count + name.count('t') + name.count('r') + name.count('u') + name.count('e')
+LOVE_count = LOVE_count + name.count('l') + name.count('o') + name.count('v') + name.count('e')
+score = int(str(TRUE_count)+str(LOVE_count))
+
+if score < 10 or score > 90:
+  print(f"Your score is {score}, you go together like coke and mentos.")
+elif score > 40 and score < 50:
+  print(f"Your score is {score}, you are alright together.")
+else:
+  print(f"Your score is {score}.")
+
+###################################################################################################################################################################
+Day 3 project - Treasure Island
+Flow chart: https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=Treasure%20Island%20Conditional.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1oDe4ehjWZipYRsVfeAx2HyB7LCQ8_Fvi%26export%3Ddownload
+"ASCII art"
+
+print('''
+*******************************************************************************
+          |                   |                  |                     |
+ _________|________________.=""_;=.______________|_____________________|_______
+|                   |  ,-"_,=""     `"=.|                  |
+|___________________|__"=._o`"-._        `"=.______________|___________________
+          |                `"=._o`"=._      _`"=._                     |
+ _________|_____________________:=._o "=._."_.-="'"=.__________________|_______
+|                   |    __.--" , ; `"=._o." ,-"""-._ ".   |
+|___________________|_._"  ,. .` ` `` ,  `"-._"-._   ". '__|___________________
+          |           |o`"=._` , "` `; .". ,  "-._"-._; ;              |
+ _________|___________| ;`-.o`"=._; ." ` '`."\` . "-._ /_______________|_______
+|                   | |o;    `"-.o`"=._``  '` " ,__.--o;   |
+|___________________|_| ;     (#) `-.o `"=.`_.--"_o.-; ;___|___________________
+____/______/______/___|o;._    "      `".o|o_.--"    ;o;____/______/______/____
+/______/______/______/_"=._o--._        ; | ;        ; ;/______/______/______/_
+____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
+/______/______/______/______/____"=._o._; | ;_.--"o.--"_/______/______/______/_
+____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
+/______/______/______/______/______/______/______/______/______/______/_____ /
+*******************************************************************************
+''')
+print("Welcome to Treasure Island.")
+print("Your mission is to find the treasure.") 
+
+#https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Treasure%20Island%20Conditional.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1oDe4ehjWZipYRsVfeAx2HyB7LCQ8_Fvi%26export%3Ddownload
+cross_road = input("There is a crossroad. Which way do you choose to go? Left or Right?")
+if cross_road.lower() == 'left':
+  swim_ornot = input("There is a river in front of you. Do you want to swim across it?(Y or N)")
+  if swim_ornot.lower() == 'y':
+    door = input("There are 3 doors. Please choose one of them!(Blues, Yellow or Red)")
+    if door.lower() == 'yellow':
+      print("You win!")
+    elif door.lower() == 'blues':
+      print("You are eaten by beast! Game Over!")
+    elif door.lower() == 'red':
+      print("You are burned by fire! Game Over!")
+    else:
+      print("You wait too long ans a monster killed you. Game Over!")
+  else:
+    print("You are attacked by trout. Game Over!")
+else:
+  print("You fall into a hole. Game Over!")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
