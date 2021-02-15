@@ -1,0 +1,123 @@
+###################################################################################################################################################################
+1. Random module
+visit: askpython.com
+import random
+random_num = randint(100,200) #including these two numbers
+random_num = rnadom.random() # [0,1) 0 to 0.99999.....
+###################################################################################################################################################################
+Exercise - Heads or Tails exercise (day-4-1-exercise)
+
+#Write your code below this line 👇
+#Hint: Remember to import the random module first. 🎲
+
+import random
+
+coin = random.randint(0,1)
+if coin == 1:
+  print("Heads")
+else:
+  print("Tails")
+###################################################################################################################################################################
+2. Data structure - List
+see more: docs.python.org
+
+num_list = [1,2,3,4,5]
+num_list[0] = 1
+num__list[-1] = 5
+num_list.append(6)
+num_list => [1,2,3,4,5,6]
+add_list = [7,8]
+num_list.extend(add_list)
+num_list => [1,2,3,4,5,6,7,8]
+###################################################################################################################################################################
+Exercise - Banker Roulette(day-4-2-exercise)
+
+# Split string method
+names_string = input("Give me everybody's names, separated by a comma. ")
+names = names_string.split(", ")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+import random
+random_int = random.randint(0,len(names)-1)
+print(f"{names[random_int]} is going to buy the meal today!")
+
+###################################################################################################################################################################
+3. Error type - IndexError list index out of range
+num_list = [1,2,3]
+num_list[3] => IndexError
+
+###################################################################################################################################################################
+4. Data structure - Nested list
+a = [1,2,3]
+b = ["a","b","c"]
+c = [a,b]
+print(c) => [[1,2,3],["a","b","c"]]
+###################################################################################################################################################################
+Exercise - Treasure Map Exercise(day-4-3-exercise)
+
+# 🚨 Don't change the code below 👇
+row1 = ["⬜️","⬜️","⬜️"]
+row2 = ["⬜️","⬜️","⬜️"]
+row3 = ["⬜️","⬜️","⬜️"]
+map = [row1, row2, row3]
+print(f"{row1}\n{row2}\n{row3}")
+position = input("Where do you want to put the treasure? ")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this row 👇
+column = int(position[0])-1
+row = int(position[1])-1
+map[row][column] = 'X'
+
+#Write your code above this row 👆
+
+# 🚨 Don't change the code below 👇
+print(f"{row1}\n{row2}\n{row3}")
+
+###################################################################################################################################################################
+Day 4 Project - ROCK PAPER SCISSORS
+
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+import random
+your_choice = input("What do you choose? Type 0 for Rock,1 for Paper and 2 for Scissors.")
+if your_choice in ['0','1','2']:
+  your_choice = int(your_choice)
+  computer_choice = random.randint(0,2)
+  gameset = [rock, paper, scissors]
+  print(gameset[your_choice])
+  print("Computer chose:")
+  print(gameset[computer_choice])
+  if your_choice == computer_choice:
+    print("No winners and play again!")
+  elif your_choice - computer_choice == 1 or your_choice - computer_choice == -2:
+    print("You win.")
+  else:
+    print("You lose.")
+else:
+  print("Wrong typing and try again!")
