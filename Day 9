@@ -1,0 +1,192 @@
+####################################################################################################################################################################
+1. Dictionary
+{key:value, key2:value2,....}
+
+our_dictionary = {
+"bug":"1",
+"function":"2"
+}
+our_dictionary["bug"] => "1"
+
+#add new item
+our_dictionary["logic"] = "3"
+
+#create empty dictionary
+empty_dictionary = {}
+
+#wipe existing dictionary
+our_dictionary = {}
+
+#edit an item in a dictionary
+our_dictionary["bug"] = "new 1"
+
+#Loop through dictionary
+for key in our_dictionary:
+  print(key)
+  print(our_dictionary[key])
+####################################################################################################################################################################
+2. Exercise - Grading Program Exercise (day-9-1-exercise)
+
+student_scores = {
+  "Harry": 81,
+  "Ron": 78,
+  "Hermione": 99, 
+  "Draco": 74,
+  "Neville": 62,
+}
+# 🚨 Don't change the code above 👆
+
+#TODO-1: Create an empty dictionary called student_grades.
+student_grades = {}
+
+
+#TODO-2: Write your code below to add the grades to student_grades.👇
+
+for key in student_scores:
+  score = student_scores[key]
+  if score >= 91 and score <= 100:
+    student_grades[key] = "Outstanding"
+  elif score >= 81 and score <=90:
+    student_grades[key] = "Exceeds Expectations"
+  elif score >= 71 and score <=80:
+    student_grades[key] = "Acceptable"
+  else:
+    student_grades[key] = "Fail"
+    
+
+# 🚨 Don't change the code below 👇
+print(student_grades)
+
+####################################################################################################################################################################
+3. Nesting
+
+our_dictionary = {
+key:value,
+key:[List],
+key:{Dictionary}
+}
+#Nesting dictionary in a Dictionary
+travel_log = {
+"France":{"city_visited":["Parris","Leon"], "city_want_to_go":["Masai"]},
+"China":{"city_visited":["Beijing","Shanghai"],"city_want_to_go":["Tibet"]}
+}
+
+#Nesting Dictionary in a List
+travel_log = [
+{ "country":"France",
+  "city":["Paris","Leon"],
+  "total_visit":12
+},
+{ "country":"China",
+  "city":["Beijing","Shanghai"],
+  "total_visit":2
+}
+]
+
+####################################################################################################################################################################
+4. Dictionary in List Exercise(day-9-2-exercise)
+
+travel_log = [
+{
+  "country": "France",
+  "visits": 12,
+  "cities": ["Paris", "Lille", "Dijon"]
+},
+{
+  "country": "Germany",
+  "visits": 5,
+  "cities": ["Berlin", "Hamburg", "Stuttgart"]
+},
+]
+#🚨 Do NOT change the code above
+
+#TODO: Write the function that will allow new countries
+#to be added to the travel_log. 👇
+
+def add_new_country(country,total_visit,city_list):
+  new_dict = {
+    "country": country,
+    "visits": total_visit,
+    "cities": city_list
+  }
+  travel_log.append(new_dict)
+
+
+
+
+#🚨 Do not change the code below
+add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])
+print(travel_log)
+
+####################################################################################################################################################################
+5. Exercise - Blind Auction (blind-auction-start)
+Mine:
+from replit import clear
+#HINT: You can call clear() to clear the output in the console.
+# logo
+from art import logo
+print(logo)
+print("Welcome to the secret auction program.")
+
+#find winner
+def find_winner(bid_record):
+    max_bid = 0
+    max_bid_name = ""
+    for name in bid_record:
+      bid = bid_record[name]
+      if bid > max_bid:
+        max_bid = bid
+        max_bid_name = name
+    clear()
+    print(f"The winner is {max_bid_name} with a bid of ${bid_record[max_bid_name]}")
+
+#create empty bid, ask name & blind_bid
+bid_dictionary = {}
+continue_bid = True
+while continue_bid:
+  name = input("What is your name?: ")
+  blind_bid = int(input("What's your bid?: $"))
+
+  # put name&blind_bid into bid_dictionary
+  bid_dictionary[name] = blind_bid
+
+  #other bidders?
+  other_bidder = input("Are there any other bidders? Type 'yes' or 'no'.")
+  if other_bidder == 'no':
+    continue_bid = False
+    # find winner
+    find_winner(bid_dictionary)
+  else:
+    clear()
+############
+Teacher's
+############
+from replit import clear
+from art import logo
+print(logo)
+
+bids = {}
+bidding_finished = False
+
+def find_highest_bidder(bidding_record):
+  highest_bid = 0
+  winner = ""
+  # bidding_record = {"Angela": 123, "James": 321}
+  for bidder in bidding_record:
+    bid_amount = bidding_record[bidder]
+    if bid_amount > highest_bid: 
+      highest_bid = bid_amount
+      winner = bidder
+  print(f"The winner is {winner} with a bid of ${highest_bid}")
+
+while not bidding_finished:
+  name = input("What is your name?: ")
+  price = int(input("What is your bid?: $"))
+  bids[name] = price
+  should_continue = input("Are there any other bidders? Type 'yes or 'no'.\n")
+  if should_continue == "no":
+    bidding_finished = True
+    find_highest_bidder(bids)
+  elif should_continue == "yes":
+    clear()
+  
