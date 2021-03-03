@@ -1,0 +1,176 @@
+###################################################################################################################################################################
+visit: https://repl.it/@Blucas0707/higher-lower-start-1#main.py
+
+1. Break down the problem - to-do list
+2. Start with the easiest
+3. Turn the problem into comments
+4. Write code => Run code => Fix code
+5. Next task
+
+
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Mar  3 20:35:44 2021
+
+@author: lucas
+"""
+
+import random
+from art import logo,vs
+from game_data import data
+from replit import clear
+
+#random pick A&B
+def random_pick():
+  choice = random.choice(data)
+  return choice
+# display Compare
+def display_compare_AB(choice_A,choice_B):
+  print(f"Compare A: {choice_A['name']}, {choice_A['description']}, from {choice_A['country']}.{choice_A['follower_count']}")
+  print(vs)
+  print(f"Compare B: {choice_B['name']}, {choice_B['description']}, from {choice_B['country']}.{choice_B['follower_count']}")
+
+def Answer(choice_A, choice_B):
+  player_input = input("Who has more followers? Type 'A' or 'B': ")
+  win = False
+  if player_input == 'A':
+    if choice_A['follower_count'] > choice_B['follower_count']:
+      win = True
+  elif player_input == 'B':
+    if choice_B['follower_count'] > choice_A['follower_count']:
+      win = True
+  else:
+    print("Type Error. Please type again!")
+    Answer(choice_A, choice_B)
+  return win 
+  
+def continue_game_choice_keep(choice_A, choice_B):
+    if choice_A['follower_count'] > choice_B['follower_count']:
+        return choice_A
+    else:
+        return choice_B
+
+
+def game():
+  #Logo
+  print(logo)
+  game_continue = True
+  total_score = 0
+  choice_A = random_pick()
+  while game_continue:
+    # in case A == B
+    choice_B = choice_A
+    while choice_B == choice_A:
+      choice_B = random_pick()
+    display_compare_AB(choice_A,choice_B)
+    win = Answer(choice_A, choice_B)
+    if win:
+      total_score += 1
+      # clear screen & logo
+      clear()
+      print(logo)
+      print(f"You're right! Your current score: {total_score}.")
+      choice_A = continue_game_choice_keep(choice_A,choice_B)
+    else:
+      # clear screen & logo
+      clear()
+      print(logo)
+      print(f"Sorry, that's wrong. Final score: {total_score}.")
+      total_score = 0
+      game_continue = False
+
+#Game start
+game()
+
+
+
+##################################################################### Teacher's#####################################################################################
+
+
+from game_data import data
+import random
+from art import logo, vs
+from replit import clear
+
+def get_random_account():
+  """Get data from random account"""
+  return random.choice(data)
+
+def format_data(account):
+  """Format account into printable format: name, description and country"""
+  name = account["name"]
+  description = account["description"]
+  country = account["country"]
+  # print(f'{name}: {account["follower_count"]}')
+  return f"{name}, a {description}, from {country}"
+
+def check_answer(guess, a_followers, b_followers):
+  """Checks followers against user's guess 
+  and returns True if they got it right.
+  Or False if they got it wrong.""" 
+  if a_followers > b_followers:
+    return guess == "a"
+  else:
+    return guess == "b"
+
+
+def game():
+  print(logo)
+  score = 0
+  game_should_continue = True
+  account_a = get_random_account()
+  account_b = get_random_account()
+
+  while game_should_continue:
+    account_a = account_b
+    account_b = get_random_account()
+
+    while account_a == account_b:
+      account_b = get_random_account()
+
+    print(f"Compare A: {format_data(account_a)}.")
+    print(vs)
+    print(f"Against B: {format_data(account_b)}.")
+    
+    guess = input("Who has more followers? Type 'A' or 'B': ").lower()
+    a_follower_count = account_a["follower_count"]
+    b_follower_count = account_b["follower_count"]
+    is_correct = check_answer(guess, a_follower_count, b_follower_count)
+
+    clear()
+    print(logo)
+    if is_correct:
+      score += 1
+      print(f"You're right! Current score: {score}.")
+    else:
+      game_should_continue = False
+      print(f"Sorry, that's wrong. Final score: {score}")
+
+game()
+
+
+# Generate a random account from the game data.
+
+# Format account data into printable format.
+
+# Ask user for a guess.
+
+# Check if user is correct.
+## Get follower count.
+## If Statement
+
+# Feedback.
+
+# Score Keeping.
+
+# Make game repeatable.
+
+# Make B become the next A.
+
+# Add art.
+
+# Clear screen between rounds.
+
+
